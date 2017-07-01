@@ -1,6 +1,6 @@
 # git-patch README
 
-This feature is still in BETA phase. You should try & provide your valuble feedback.
+This feature is still in BETA phase. You should try & provide your valuable feedback.
 
 ## Features
 
@@ -29,5 +29,6 @@ It supports two commands as of now:-
 - creates a patch file in workspace. Need a better way to do this.
 - Patch sometimes fails due to HUNK errors. 
 
+**You are welcome to extend this extension**
 
 **Enjoy!**
