@@ -1,19 +1,34 @@
 {
-    "name": "git patch",
+    "name": "gitpatch",
     "displayName": "Git Patch",
     "description": "Create & apply a Git patch",
-    "version": "0.0.1",
-    "publisher": "Parag Diwan",
+    "version": "0.0.2",
+    "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"
     },
     "categories": [
         "Other"
     ],
+    "galleryBanner": {
+        "color": "#f0efe7",
+        "theme": "light"
+    },
+    "icon": "images/git_icon.png",
     "activationEvents": [
         "onCommand:extension.gitCreatePatch",
         "onCommand:extension.gitApplyPatch"
     ],
+    "keywords": [
+        "git",
+        "patch",
+        "apply",
+        "git patch"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/paragdiwan/vscode-git-patch"
+    },
     "main": "./out/src/extension",
     "contributes": {
         "commands": [

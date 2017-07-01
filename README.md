@@ -17,9 +17,7 @@ You must have `git` installed already.
 
 ## Extension Settings
 
-Once installed, you can then 
-
-For example:
+It supports two commands as of now:-
 
 
 * `gitCreatePatch`: create a patch from staging files.
