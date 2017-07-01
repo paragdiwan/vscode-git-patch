@@ -9,6 +9,10 @@ This feature is still in BETA phase. You should try & provide your valuable feed
 
 This feature still immature but will be extended step by step.
 
+## How to use
+
+ - Simply stage the file(s) which you want to create a patch of.
+ - While applying just type a `patch filename` and press ENTER.
 
 
 ## Requirements
@@ -28,6 +32,7 @@ It supports two commands as of now:-
 - have not verified in Windows but should work fine.
 - creates a patch file in workspace. Need a better way to do this.
 - Patch sometimes fails due to HUNK errors. 
+- Patch files will be added in your git repository. You may want to ignore by putting wildcard entry in `.gitignore`.
 
 **You are welcome to extend this extension!** :-)
 
