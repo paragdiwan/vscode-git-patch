@@ -1,6 +1,5 @@
 # git-patch README
 
-This feature is still in BETA phase. You should try & provide your valuable feedback.
 
 ## Features
 

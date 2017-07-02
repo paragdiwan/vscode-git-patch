@@ -1,8 +1,8 @@
 {
     "name": "gitpatch",
     "displayName": "Git Patch",
-    "description": "Allows user to create a git patch from staged files. Also apply a patch from existing patch file.",
-    "version": "0.0.8",
+    "description": "Allows developer to create & apply `git patch`",
+    "version": "0.0.9",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"
@@ -12,7 +12,7 @@
     ],
     "galleryBanner": {
         "color": "#f0efe7",
-        "theme": "light"
+        "theme": "dark"
     },
     "icon": "images/git_icon.png",
     "activationEvents": [
