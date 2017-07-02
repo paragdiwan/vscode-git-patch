@@ -2,7 +2,7 @@
     "name": "gitpatch",
     "displayName": "Git Patch",
     "description": "Allows developer to create & apply `git patch`",
-    "version": "0.0.9",
+    "version": "0.1.0",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"
@@ -11,7 +11,7 @@
         "Other"
     ],
     "galleryBanner": {
-        "color": "#f0efe7",
+        "color": "#000000",
         "theme": "dark"
     },
     "icon": "images/git_icon.png",
