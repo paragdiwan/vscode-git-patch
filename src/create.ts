@@ -3,19 +3,25 @@ import * as vscode from 'vscode';
 import * as child_process from 'child_process';
 
 
-export function createPatch(cwd) {
-    if(!cwd) {
-        let cwd = vscode.workspace.rootPath;
-    }
+export function createPatch(isStaged:boolean) {
+    
+    let cwd = vscode.workspace.rootPath;
+    let cmd;
+    
     vscode.window.showInputBox({
-         'placeHolder': "Enter name of patch file with/without extension"
+        'placeHolder': "Enter name of patch file with/without extension"
     }).then(function (patchFileName) {
-        if(patchFileName.indexOf('.') === -1) {
-            patchFileName = patchFileName+'.patch';
+        if (patchFileName.indexOf('.') === -1) {
+            patchFileName = patchFileName + '.patch';
         }
-        const cmd = `git diff --cached > ${patchFileName}`;
+        if(isStaged) {
+            cmd = `git diff --cached > ${patchFileName}`;
+        }
+        else {
+            cmd = `git diff > ${patchFileName}`;
+        }
         child_process.exec(cmd, {
-            cwd: cwd       
+            cwd: cwd
         }, (error, stdout, stderr) => {
             const myOutputChannel = vscode.window.createOutputChannel('Git create patch');
             myOutputChannel.show();
@@ -25,8 +31,8 @@ export function createPatch(cwd) {
             const successMsg = `Patch created in ${cwd}`;
             vscode.window.setStatusBarMessage(successMsg, 10000);
             myOutputChannel.append(stdout);
-        });    
+        });
     });
-    
+
 
 }

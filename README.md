@@ -4,28 +4,23 @@ This feature is still in BETA phase. You should try & provide your valuable feed
 
 ## Features
 
-- Creates a GIT patch from staged files. You must stage your files in-order to create a patch.
-- Apply a patch by entering a patch file name. This assumes that the patch exists in your workspace.
-
-This feature still immature but will be extended step by step.
-
+- Creates a GIT patch from staged/unstaged files.
+- Apply a patch by entering a patch file name.
+ 
 ## How to use
-
- - Simply stage the file(s) which you want to create a patch of.
- - While applying just type a `patch filename` and press ENTER.
+   It supports three commands as of now:-
+ 
+ - If you want to create a patch from stage files , then execute `gitCreatePatchFromStaged` command.
+ - If you want to create a patch from unstage files , then execute `gitCreatePatchFromUnstaged` command. 
+ 
+ - To Apply a patch execute command  `gitApplyPatch`
+ - While applying, type a `patch filename` and press ENTER.
 
 
 ## Requirements
 
 You must have `git` installed already.
 
-## Extension Settings
-
-It supports two commands as of now:-
-
-
-* `gitCreatePatch`: create a patch from staging files.
-* `gitApplyPatch`: Apply a patch by entering a patch file name.
 
 ## Known Issues/## TODO's
 

@@ -2,7 +2,7 @@
     "name": "gitpatch",
     "displayName": "Git Patch",
     "description": "Allows user to create a git patch from staged files. Also apply a patch from existing patch file.",
-    "version": "0.0.4",
+    "version": "0.0.8",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"
@@ -16,8 +16,8 @@
     },
     "icon": "images/git_icon.png",
     "activationEvents": [
-        "onCommand:extension.gitCreatePatch",
-        "onCommand:extension.gitApplyPatch"
+        "onCommand:extension.gitCreatePatchFromStaged",
+        "onCommand:extension.gitCreatePatchFromUnstaged"
     ],
     "keywords": [
         "git",
@@ -33,9 +33,14 @@
     "contributes": {
         "commands": [
             {
-                "command": "extension.gitCreatePatch",
+                "command": "extension.gitCreatePatchFromStaged",
                 "title": "Git: Creates a patch from staged files"
             },
+            {
+                "command": "extension.gitCreatePatchFromUnstaged",
+                "title": "Git: Creates a patch from unstaged files"
+            },
+         
             {
                 "command": "extension.gitApplyPatch",
                 "title": "Git: Apply a patch from existing patch file"

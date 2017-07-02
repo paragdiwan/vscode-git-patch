@@ -7,18 +7,22 @@ export function applyPatch() {
     vscode.window.showInputBox({
         'placeHolder': "Enter a patch file"
     }).then(function (patchFileName) {
+        if (!patchFileName) {
+            return;
+        }
         const cmd = `git apply --ignore-space-change --ignore-whitespace -v < ${patchFileName}`;
         child_process.exec(cmd, {
             cwd: cwd
         }, (error, stdout, stderr) => {
-            const myOutputChannel = vscode.window.createOutputChannel('Git apply patch');
-            myOutputChannel.show();
             if (error) {
-                return myOutputChannel.append(error.message);
+                const myOutputChannel = vscode.window.createOutputChannel('Git apply patch');
+                myOutputChannel.show();
+                myOutputChannel.append(error.message);
+                myOutputChannel.append(stdout);
+                return;
             }
             const successMsg = `Applied patch successfully!`;
             vscode.window.setStatusBarMessage(successMsg, 10000);
-            myOutputChannel.append(stdout);
         });
     });
 
