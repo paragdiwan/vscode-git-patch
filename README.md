@@ -15,6 +15,8 @@
  - To Apply a patch execute command  `gitApplyPatch`
  - While applying, type a `patch filename` and press ENTER.
 
+ ![GitPatch preview](https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/how-to-use.gif)
+
 
 ## Requirements
 
