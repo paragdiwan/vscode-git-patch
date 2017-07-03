@@ -2,7 +2,7 @@
     "name": "gitpatch",
     "displayName": "Git Patch",
     "description": "Allows developer to create & apply `git patch`",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"
@@ -17,7 +17,8 @@
     "icon": "images/git_icon.png",
     "activationEvents": [
         "onCommand:extension.gitCreatePatchFromStaged",
-        "onCommand:extension.gitCreatePatchFromUnstaged"
+        "onCommand:extension.gitCreatePatchFromUnstaged",
+        "onCommand:extension.gitApplyPatch"
     ],
     "keywords": [
         "git",
