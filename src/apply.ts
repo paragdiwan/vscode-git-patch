@@ -15,14 +15,11 @@ export function applyPatch() {
             cwd: cwd
         }, (error, stdout, stderr) => {
             if (error) {
-                const myOutputChannel = vscode.window.createOutputChannel('Git apply patch');
-                myOutputChannel.show();
-                myOutputChannel.append(error.message);
-                myOutputChannel.append(stdout);
-                return;
+                vscode.window.showInformationMessage('Error while applying a patch', 5000);
             }
-            const successMsg = `Applied patch successfully!`;
-            vscode.window.setStatusBarMessage(successMsg, 10000);
+            else {
+                vscode.window.showInformationMessage('Patch applied successully!', 5000);
+            }
         });
     });
 

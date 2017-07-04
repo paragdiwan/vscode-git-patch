@@ -2,7 +2,7 @@
     "name": "gitpatch",
     "displayName": "Git Patch",
     "description": "Allows developer to create & apply `git patch`",
-    "version": "0.1.2",
+    "version": "0.1.4",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.13.0"

@@ -23,15 +23,14 @@ export function createPatch(isStaged:boolean) {
         child_process.exec(cmd, {
             cwd: cwd
         }, (error, stdout, stderr) => {
-            const myOutputChannel = vscode.window.createOutputChannel('Git create patch');
-            myOutputChannel.show();
-            if (error) {
-                return myOutputChannel.append(error.message);
-            }
-            const successMsg = `Patch created in ${cwd}`;
-            vscode.window.setStatusBarMessage(successMsg, 10000);
-            myOutputChannel.append(stdout);
-        });
+                if (error) {
+                    vscode.window.showInformationMessage('Error while creating a patch' ,5000);
+                }
+                else {
+                    const successMsg = `Patch file "${patchFileName}" created in ${cwd}`;
+                    vscode.window.showInformationMessage(successMsg,5000);    
+                }
+            });
     });
 
 
