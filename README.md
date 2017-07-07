@@ -1,4 +1,5 @@
-# git-patch README
+git-patch
+---------
 
 
 ## Features
@@ -7,29 +8,22 @@
 - Apply a patch by entering a patch file name.
  
 ## How to use
-   It supports three commands as of now:-
- 
- - If you want to create a patch from stage files , then execute `gitCreatePatchFromStaged` command.
- - If you want to create a patch from unstage files , then execute `gitCreatePatchFromUnstaged` command. 
- 
- - To Apply a patch execute command  `gitApplyPatch`
- - While applying, type a `patch filename` and press ENTER.
 
- ![GitPatch preview](https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/htu.gif)
-
-
+ * Create a Git patch
+   [Git create patch  preview] https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-create-patch.gif)
+ * Apply a Git patch
+   [Git create patch  preview] https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-apply-patch.gif)
 ## Requirements
 
 You must have `git` installed already.
 
 
-## Known Issues/## TODO's
+## Known Issues
 
-- have not verified in Windows but should work fine.
-- creates a patch file in workspace. Need a better way to do this.
+- Creates a patch file in workspace. Shall allow user to save patch on anywhere on the drive.
 - Patch sometimes fails due to HUNK errors. 
 - Patch files will be added in your git repository. You may want to ignore by putting wildcard entry in `.gitignore`.
 
-**You are welcome to extend this extension!** :-)
+Kindly provide your feedback to improve this extension.
 
 **Enjoy!**
