@@ -4,15 +4,22 @@ git-patch
 
 ## Features
 
-- Creates a GIT patch from staged/unstaged files.
-- Apply a patch by entering a patch file name.
+- Creates a GIT patch from _Staged_ files.
+- Creates a GIT patch from _Unstaged_ files.
+
+- _Apply_ a patch by entering a _name of the existing patch file_.
  
 ## How to use
 
- * Create a Git patch
-   [Git create patch  preview] https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-create-patch.gif)
- * Apply a Git patch
-   [Git create patch  preview] https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-apply-patch.gif)
+### _Create a Git patch_
+
+  ![Git create patch preview](https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-create-patch.gif)
+ 
+ 
+### _Apply a Git patch_
+   ![Git apply patch  preview](https://raw.githubusercontent.com/paragdiwan/vscode-git-patch/master/images/git-apply-patch.gif)
+
+
 ## Requirements
 
 You must have `git` installed already.
