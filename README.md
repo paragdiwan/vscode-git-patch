@@ -7,7 +7,7 @@ git-patch
 - Creates a GIT patch from _Staged_ files.
 - Creates a GIT patch from _Unstaged_ files.
 
-- _Apply_ a patch by entering a _name of the existing patch file_.
+- _Apply_ a patch by _selecting a patch file_.
  
 ## How to use
 
