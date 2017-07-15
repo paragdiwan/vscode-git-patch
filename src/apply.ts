@@ -1,7 +1,7 @@
 
 import * as vscode from 'vscode';
 import * as child_process from 'child_process';
-import * as GP from './constants';
+import {GP}  from './constants';
 
 export function applyPatch() {
     let cwd = vscode.workspace.rootPath;
@@ -11,7 +11,7 @@ export function applyPatch() {
         files.forEach(file => {
             patchFiles.push(file.fsPath);
         });
-
+        
         if (patchFiles.length) {
             vscode.window.showQuickPick(patchFiles).then((patchFileName) => {
                 const cmd = `git apply --ignore-space-change --ignore-whitespace -v < ${patchFileName}`;

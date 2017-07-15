@@ -4,7 +4,7 @@
 import * as vscode from 'vscode';
 import { createPatch } from './create';
 import { applyPatch } from './apply';
-import * as GP from './constants';
+import {GP}  from './constants';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed

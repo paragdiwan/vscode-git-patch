@@ -1,7 +1,7 @@
 
 import * as vscode from 'vscode';
 import * as child_process from 'child_process';
-import * as GP from './constants';
+import {GP}  from './constants';
 
 export function createPatch(isStaged: boolean) {
 
