@@ -5,15 +5,15 @@ import * as GP from './constants';
 
 export function applyPatch() {
     let cwd = vscode.workspace.rootPath;
-    let foundFiles = [];
+    let patchFiles = [];
 
     vscode.workspace.findFiles("*.patch").then(function (files) {
         files.forEach(file => {
-            foundFiles.push(file.fsPath);
+            patchFiles.push(file.fsPath);
         });
 
-        if (foundFiles.length) {
-            vscode.window.showQuickPick(foundFiles).then((patchFileName) => {
+        if (patchFiles.length) {
+            vscode.window.showQuickPick(patchFiles).then((patchFileName) => {
                 const cmd = `git apply --ignore-space-change --ignore-whitespace -v < ${patchFileName}`;
                 child_process.exec(cmd, {
                     cwd: cwd
@@ -24,7 +24,6 @@ export function applyPatch() {
                     else {
                         vscode.window.showInformationMessage(GP.SUCCESS_APPLY_PATCH, GP.TIMEOUT);
                     }
-
                 });
             });
         }

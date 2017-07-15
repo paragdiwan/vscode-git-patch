@@ -18,8 +18,8 @@ export function activate(context: vscode.ExtensionContext) {
         // The code you place here will be executed every time your command is executed    
         vscode.window.showQuickPick(['Yes', 'No'], {
             placeHolder: GP.DIALOG_STAGED_FILES
-        }).then(function (optionCreatePatch) {
-            if (optionCreatePatch === 'Yes') {
+        }).then(function (userResponse) {
+            if (userResponse.toLowerCase() === 'yes') {
                 createPatch(true);
             }
             else {
@@ -33,8 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
         // The code you place here will be executed every time your command is executed    
         vscode.window.showQuickPick(['Yes', 'No'], {
             placeHolder: GP.DIALOG_UNSTAGED_FILES
-        }).then(function (optionCreatePatch) {
-            if (optionCreatePatch === 'Yes') {
+        }).then(function (userResponse) {
+            if (userResponse.toLowerCase() === 'yes') {
                 createPatch(false);
             }
             else {
