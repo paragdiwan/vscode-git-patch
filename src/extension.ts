@@ -4,16 +4,12 @@
 import * as vscode from 'vscode';
 import { createPatch } from './create';
 import { applyPatch } from './apply';
+import * as GP from './constants';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "Git patch" is now active!');
-
-    let editor = vscode.window.activeTextEditor;
 
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
@@ -21,13 +17,13 @@ export function activate(context: vscode.ExtensionContext) {
     let disposableCPS = vscode.commands.registerCommand('extension.gitCreatePatchFromStaged', async () => {
         // The code you place here will be executed every time your command is executed    
         vscode.window.showQuickPick(['Yes', 'No'], {
-            placeHolder: 'Would you like create a patch from staged files?'
+            placeHolder: GP.DIALOG_STAGED_FILES
         }).then(function (optionCreatePatch) {
             if (optionCreatePatch === 'Yes') {
                 createPatch(true);
             }
             else {
-                vscode.window.showInformationMessage('You have cancelled operation',5000);
+                vscode.window.showInformationMessage(GP.USER_CANCELLED, GP.TIMEOUT);
                 return;
             }
         })
@@ -36,13 +32,13 @@ export function activate(context: vscode.ExtensionContext) {
     let disposableCPU = vscode.commands.registerCommand('extension.gitCreatePatchFromUnstaged', async () => {
         // The code you place here will be executed every time your command is executed    
         vscode.window.showQuickPick(['Yes', 'No'], {
-            placeHolder: 'Would you like create a patch from unstaged files?'
+            placeHolder: GP.DIALOG_UNSTAGED_FILES
         }).then(function (optionCreatePatch) {
             if (optionCreatePatch === 'Yes') {
                 createPatch(false);
             }
             else {
-                vscode.window.showInformationMessage('You have cancelled operation',5000);
+                vscode.window.showInformationMessage(GP.USER_CANCELLED, GP.TIMEOUT);
                 return;
             }
         })
