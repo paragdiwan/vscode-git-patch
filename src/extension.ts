@@ -4,7 +4,7 @@
 import * as vscode from 'vscode';
 import { createPatch } from './create';
 import { applyPatch } from './apply';
-import {GP}  from './constants';
+import { GP }  from './constants';
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
                 createPatch(true);
             }
             else {
-                vscode.window.showInformationMessage(GP.USER_CANCELLED, GP.TIMEOUT);
+                vscode.window.showErrorMessage(GP.USER_CANCELLED);
                 return;
             }
         })
@@ -38,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
                 createPatch(false);
             }
             else {
-                vscode.window.showInformationMessage(GP.USER_CANCELLED, GP.TIMEOUT);
+                vscode.window.showWarningMessage(GP.USER_CANCELLED);
                 return;
             }
         })

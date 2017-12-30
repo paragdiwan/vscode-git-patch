@@ -11,6 +11,10 @@ export function createPatch(isStaged: boolean) {
     vscode.window.showInputBox({
         'placeHolder': GP.DIALOG_PLACEHOLDER
     }).then(function (patchFileName) {
+        if ( !patchFileName) {
+            vscode.window.showErrorMessage(GP.ERROR_NO_FILE_NAME);
+            return;
+        }
         if (patchFileName.indexOf('.') === -1) {
             patchFileName = patchFileName + '.patch';   
         }
@@ -24,10 +28,10 @@ export function createPatch(isStaged: boolean) {
             cwd: cwd
         }, (error, stdout, stderr) => {
             if (error) {
-                vscode.window.showInformationMessage(GP.FAILED_CREATE_PATCH, GP.TIMEOUT);
+                vscode.window.showErrorMessage(GP.FAILED_CREATE_PATCH);
             }
             else {
-                vscode.window.showInformationMessage(GP.SUCCESS_CREATE_PATCH, GP.TIMEOUT);
+                vscode.window.showInformationMessage(GP.SUCCESS_CREATE_PATCH);
             }
         });
     });

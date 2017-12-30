@@ -19,16 +19,16 @@ export function applyPatch() {
                     cwd: cwd
                 }, (error, stdout, stderr) => {
                     if (error) {
-                        vscode.window.showInformationMessage(GP.FAILED_APPLY_PATCH, GP.TIMEOUT);
+                        vscode.window.showInformationMessage(GP.FAILED_APPLY_PATCH);
                     }
                     else {
-                        vscode.window.showInformationMessage(GP.SUCCESS_APPLY_PATCH, GP.TIMEOUT);
+                        vscode.window.showInformationMessage(GP.SUCCESS_APPLY_PATCH);
                     }
                 });
             });
         }
         else {
-            vscode.window.showInformationMessage(GP.NO_PATCH_FILES, GP.TIMEOUT);
+            vscode.window.showErrorMessage(GP.NO_PATCH_FILES);
         }
     });
 }
