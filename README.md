@@ -2,6 +2,12 @@ git-patch
 ---------
 
 
+## [0.2.0] - 2018-02-05
+### Added
+- Better way to create & apply patch via dialog.
+- Save patch at custom location.
+
+
 ## Features
 
 - Creates a GIT patch from _Staged_ files.
