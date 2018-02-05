@@ -2,27 +2,27 @@
 import * as vscode from 'vscode';
 import * as child_process from 'child_process';
 import {GP}  from './constants';
+import { Uri } from 'vscode';
 
 export function createPatch(isStaged: boolean) {
 
     let cwd = vscode.workspace.rootPath;
     let cmd;
+    const defaultUri = vscode.Uri.parse(cwd);
+    const options:vscode.SaveDialogOptions = {  saveLabel: 'Create patch', filters: {'patch files':['patch', 'diff']} };
 
-    vscode.window.showInputBox({
-        'placeHolder': GP.DIALOG_PLACEHOLDER
-    }).then(function (patchFileName) {
-        if ( !patchFileName) {
+    vscode.window.showSaveDialog(options).
+    then(function (pathObject) {
+        if ( !pathObject.fsPath) {
             vscode.window.showErrorMessage(GP.ERROR_NO_FILE_NAME);
             return;
         }
-        if (patchFileName.indexOf('.') === -1) {
-            patchFileName = patchFileName + '.patch';   
-        }
+       
         if (isStaged) {
-            cmd = `git diff --cached > ${patchFileName}`;
+            cmd = `git diff --cached > ${pathObject.fsPath}`;
         }
         else {
-            cmd = `git diff > ${patchFileName}`;
+            cmd = `git diff > ${pathObject.fsPath}`;
         }
         child_process.exec(cmd, {
             cwd: cwd
