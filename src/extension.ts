@@ -16,32 +16,13 @@ export function activate(context: vscode.ExtensionContext) {
     // The commandId parameter must match the command field in package.json
     let disposableCPS = vscode.commands.registerCommand('extension.gitCreatePatchFromStaged', async () => {
         // The code you place here will be executed every time your command is executed    
-        vscode.window.showQuickPick(['Yes', 'No'], {
-            placeHolder: GP.DIALOG_STAGED_FILES
-        }).then(function (userResponse) {
-            if (userResponse.toLowerCase() === 'yes') {
-                createPatch(true);
-            }
-            else {
-                vscode.window.showErrorMessage(GP.USER_CANCELLED);
-                return;
-            }
-        })
+            createPatch(true);
     });
+    
 
     let disposableCPU = vscode.commands.registerCommand('extension.gitCreatePatchFromUnstaged', async () => {
         // The code you place here will be executed every time your command is executed    
-        vscode.window.showQuickPick(['Yes', 'No'], {
-            placeHolder: GP.DIALOG_UNSTAGED_FILES
-        }).then(function (userResponse) {
-            if (userResponse.toLowerCase() === 'yes') {
-                createPatch(false);
-            }
-            else {
-                vscode.window.showWarningMessage(GP.USER_CANCELLED);
-                return;
-            }
-        })
+        createPatch(false);
     });
 
 

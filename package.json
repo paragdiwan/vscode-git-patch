@@ -1,12 +1,15 @@
 {
     "name": "gitpatch",
     "displayName": "Git Patch",
-    "description": "Allows developer to create & apply `git patch`",
-    "version": "0.2.0",
+    "description": "Creates supplied diff output (i.e. 'a patch') and applies it to files. ",
+    "version": "0.2.1",
     "publisher": "paragdiwan",
     "engines": {
         "vscode": "^1.19.0"
     },
+    "author": {
+        "name": "Parag Diwan"
+    },        
     "categories": [
         "Other"
     ],
@@ -47,8 +50,42 @@
                 "command": "extension.gitApplyPatch",
                 "title": "Git: Apply a patch from existing patch file"
             }
-        ]
+        ],
+        "menus": {
+            "scm/title": [
+                {
+                    "command": "extension.gitCreatePatchFromStaged",
+                    "when": "scmProvider == git",
+                    "group": "inline"
+                },
+                {
+                    "command": "extension.gitCreatePatchFromUnstaged",
+                    "when": "scmProvider == git",
+                    "group": "inline"
+                },
+                {
+                    "command": "extension.gitApplyPatch",
+                    "when": "scmProvider == git",
+                    "group": "inline"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "extension.gitCreatePatchFromStaged",
+                    "group": "MyGroup@1"
+                },
+                {
+                    "command": "extension.gitCreatePatchFromUnstaged",
+                    "group": "MyGroup@1"
+                },
+                {
+                    "command": "extension.gitApplyPatch",
+                    "group": "MyGroup@1"
+                }
+            ]
+        }
     },
+   
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
